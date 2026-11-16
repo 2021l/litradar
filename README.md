@@ -92,6 +92,44 @@ reports/       生成的周报（不入库）
 
 `SKILL.md` 里写着完整的每周流程、评分模型、异常处理与验收清单，可以直接交给 AI Agent 执行。
 
+## 在 DeepSeek Harness 里直接用
+
+litradar 是一份**标准的 DSH skill**：`SKILL.md` 带 `name` / `description` frontmatter，
+落在 `~/.dsh/skills/` 下就会被 Harness 自动发现，不需要额外插件或打包。
+
+```powershell
+# Windows
+git clone https://github.com/2021l/litradar.git "$env:USERPROFILE\.dsh\skills\litradar"
+```
+
+```bash
+# macOS / Linux
+git clone https://github.com/2021l/litradar.git ~/.dsh/skills/litradar
+```
+
+仓库放在别处也行，用目录链接进来（这样 `git pull` 就能升级技能，不必重新安装）：
+
+```powershell
+New-Item -ItemType Junction -Path "$env:USERPROFILE\.dsh\skills\litradar" -Target "D:\path\to\litradar"
+```
+
+```bash
+ln -s ~/code/litradar ~/.dsh/skills/litradar
+```
+
+装好后 Harness 会实时刷新技能列表（无需重启）。之后对 Agent 说一句就行：
+
+> 用 litradar 给我建一个「固态电池界面化学」方向的文献雷达
+
+Agent 会按 `SKILL.md` 里的流程执行：确认/修改三份配置 → 体检 → 检索 → 选文 → 核验全文 → 生成周报 → 更新增量起点。
+
+注意事项：
+
+- 目录名建议与 frontmatter 的 `name` 保持一致（都用 `litradar`）。
+- `SKILL.md` 必须位于技能包根目录，Harness 只在那里找。
+- 技能本身不依赖 Harness：同样的文件在终端里 `python scripts/run_weekly.py` 也能跑，
+  装进 Harness 只是让 Agent 替你执行这套流程。
+
 ## 常见问题
 
 **会议论文怎么办？**

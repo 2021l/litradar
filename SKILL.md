@@ -1,3 +1,8 @@
+---
+name: litradar
+description: "Literature radar for graduate students in any field: scan a whitelisted journal list, filter and score papers by your own direction keywords, verify metadata, and produce a verifiable Chinese weekly report with deduplicated history. Configuration-driven, so it adapts to soft electronics, AI/ML, biomedicine or your own field. Use for 文献雷达、每周文献周报、领域前沿追踪、期刊监控、论文筛选、科研情报整理、文献去重与选题调研."
+---
+
 # Literature Radar（文献雷达）
 
 给研究生用的**通用**文献雷达：每周扫描你白名单里的期刊，按你自己定义的方向打分排序，
