@@ -130,6 +130,29 @@ Agent 会按 `SKILL.md` 里的流程执行：确认/修改三份配置 → 体�
 - 技能本身不依赖 Harness：同样的文件在终端里 `python scripts/run_weekly.py` 也能跑，
   装进 Harness 只是让 Agent 替你执行这套流程。
 
+## 其他 AI Agent 怎么装
+
+技能按开放 Agent Skills 约定组织（`SKILL.md` + YAML frontmatter），主流 Agent 都能直接用：
+
+| Agent | 怎么装 |
+| --- | --- |
+| DeepSeek Harness | `git clone … ~/.dsh/skills/litradar`（或建目录联接），技能列表实时出现 |
+| Claude Code | 项目级：仓库已内置 `.claude/skills/litradar/`，在此仓库开工即可；个人级：把该目录拷到 `~/.claude/skills/` |
+| Codex | 仓库根目录已内置 `AGENTS.md` 与 `.agents/skills/litradar/`，在此仓库开工即可 |
+| 豆包 | 豆包 →「技能」→「导入技能」→ 选择仓库根目录（根目录含 `SKILL.md`） |
+| Cursor / Windsurf / Copilot 等 | 多数会读 `AGENTS.md`；不读的话把 `SKILL.md` 正文当提示词粘进系统设定 |
+
+入口文件分工（正文只有一份，避免多处漂移）：
+
+- `SKILL.md` —— **唯一的流程真相**，所有 Agent 最终都读它
+- `AGENTS.md` —— Codex 等工具的仓库级指引
+- `CLAUDE.md` —— Claude Code 的仓库记忆
+- `.agents/skills/litradar/`、`.claude/skills/litradar/` —— 两个 Agent 的技能发现目录，
+  里面是只指向根 `SKILL.md` 的薄封装
+
+> 豆包客户端各版本对「导入技能」的支持不一致。如果你的版本只接受提示词，
+> 把根 `SKILL.md` 的正文整段粘进智能体设定即可；脚本部分在本地手动跑。
+
 ## 常见问题
 
 **会议论文怎么办？**
