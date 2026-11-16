@@ -285,6 +285,8 @@ analysis JSON 可选填写 `comparisons` 与 `opportunities`（见 `templates` �
 ## 9. 维护
 
 - **换领域**：`use_preset.py`，或手改三份配置。
+- **调方向分值**：先把 cap 摊平。单一材料或单一方法独占相关性分，会让其他子领域系统性落榜
+  （例如一个柔性电子雷达若把过半分给某一种导电聚合物，机器人、光电子方向就几乎进不了榜）。
 - **加期刊**：编辑 `journals.yaml`，`id/name/tier` 必填，`issn` 建议填，然后跑 `health_check.py`。
 - **加方向**：`keywords.yaml` 的 `directions`，保持 cap 之和 = `scoring.yaml` 的 `relevance`。
 - **加专项章节**：`keywords.yaml` 的 `flags`，每个 flag 自动变成周报 5.x 小节。

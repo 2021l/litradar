@@ -8,17 +8,17 @@ meta:
 report:
   prefix: Flexible_Electronics_Weekly_Report
   title: 柔性电子前沿文献周报
-  field: PEDOT:PSS 导电薄膜、柔性传感器与航天结构健康监测
-  inspiration_note: "> 以下为 Agent 结合 PEDOT:PSS 导电薄膜、柔性传感器与航天结构健康监测方向的推理，不是原文结论。"
-  flag_note: "PEDOT 的二次掺杂、方阻、膜厚、脱膜与界面结合参数需读全文核实。"
-  method_caveat: "关键词和摘要级筛选可能漏掉未在摘要中写明“flexible/stretchable”的论文，也可能误收仅顺带提及柔性的论文；需结合全文复核。"
-  footer: "*本报告由柔性电子文献雷达自动生成，经 Agent 复核。所有论文元数据来自 Crossref/OpenAlex，DOI 链接指向出版社页面。未核实的数据已明确标注，不以推测替代原文。*"
+  field: 柔性电子全领域 —— 软体机器人与执行器、柔性传感器、可拉伸导体与界面、柔性光电子/能源/生物电子、航天可靠性
+  inspiration_note: "> 以下为 Agent 结合本领域研究脉络的推理，不是原文结论。"
+  flag_note: "专项章节宁可写「本周无」，也不用相邻方向的工作顶替。"
+  method_caveat: "关键词与摘要级筛选可能漏掉未在摘要里写明「flexible / stretchable / soft」的工作，也可能误收只顺带提及柔性的论文；需结合全文复核。"
+  footer: "*本报告由文献雷达自动生成，经 Agent 复核。所有论文元数据来自 Crossref/OpenAlex，DOI 链接指向出版社页面。未核实的数据已明确标注，不以推测替代原文。*"
   parameter_rows:
     - 材料体系 / 型号
     - 材料配比 / 浓度
     - 柔性基底
-    - 薄膜厚度
-    - 旋涂 / 涂布参数
-    - 干燥 / 退火条件
-    - 制备流程
-    - 表征方法
+    - 薄膜 / 器件尺寸
+    - 制备或组装工艺
+    - 驱动或工作条件
+    - 关键性能指标
+    - 循环 / 环境稳定性
