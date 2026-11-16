@@ -1,0 +1,112 @@
+# 关键词库 —— 决定「什么样的论文算你的方向」
+#
+# 三块内容，各管一件事：
+#   gates       门槛：用来决定「进不进候选池」。可以整段留空（= 不设门槛）。
+#   directions  方向：命中哪些词加多少分，cap 之和应等于 scoring.yaml 的 relevance（默认 30）。
+#   flags       专项：报告第 5 节按 flags 自动生成小节，你想盯几个方向就写几个。
+#
+# 匹配规则：不区分大小写、按词边界匹配，连字符与空格视为等价。
+# 改完请跑一次 python scripts/health_check.py。
+
+version: 1
+
+gates:
+  # 核心词：至少命中一个才进入候选池。
+  # 留空（core: []）表示不做核心词过滤 —— 适合「我就要这几本刊的全部新文章」的用法。
+  core: []
+
+  # 范围词：再命中一个，避免把同名的非研究内容收进来。
+  # 留空表示不启用。
+  scope: []
+
+  # 非研究内容 / 勘误 / 撤稿标记，直接排除出主榜。这段建议保留。
+  exclude:
+    - correction
+    - erratum
+    - retraction
+    - retracted
+    - editorial
+    - obituary
+    - book review
+    - conference calendar
+    - call for papers
+    - table of contents
+    - front cover
+    - inside front cover
+    - back cover
+    - issue information
+    - cover picture
+    - masthead
+
+# 研究方向：换成你所在领域的子方向，cap 之和 = 相关性满分（默认 30）
+directions:
+  - id: core_topic
+    label: 核心主题
+    cap: 12
+    terms:
+      - 替换成你领域的核心概念
+      - core concept of your field
+  - id: methods
+    label: 方法与技术
+    cap: 10
+    terms:
+      - method
+      - technique
+      - framework
+      - protocol
+      - pipeline
+  - id: application
+    label: 应用与影响
+    cap: 8
+    terms:
+      - application
+      - deployment
+      - clinical
+      - industrial
+      - real-world
+      - benchmark
+
+# 专项追踪：报告第 5 节按这里的顺序和 label 自动生成小节。
+# 每个 flag 的 terms 用于统计命中；留空则小节里只显示「未检索到」。
+flags:
+  method_breakthrough:
+    label: 方法 / 技术突破
+    terms:
+      - novel method
+      - framework
+      - benchmark
+      - state of the art
+      - outperforms
+  application_impact:
+    label: 应用落地
+    terms:
+      - application
+      - deployment
+      - clinical trial
+      - field test
+      - scale-up
+
+# 综述识别：只用于标记，最终由 Agent 核验标题/摘要
+review_patterns:
+  - "\\breview\\b"
+  - "\\bperspective\\b"
+  - "\\boverview\\b"
+  - "\\broadmap\\b"
+  - "\\btutorial\\b"
+  - "recent (advances|progress|developments)"
+  - "advances in"
+  - "progress in"
+  - "state of the art"
+  - "a survey"
+  - "systematic review"
+  - "meta-analysis"
+
+# 同分排序用，不进入 100 分评分
+priority_tiebreak:
+  - terms: [benchmark, state of the art, outperforms]
+    points: 2
+
+# 下周检索种子词：报告第 7 节会用到；也可以在 analysis JSON 里覆盖
+next_week_seed_keywords:
+  - 在这里写下周想重点追的检索词
+  - your field keyword 2026

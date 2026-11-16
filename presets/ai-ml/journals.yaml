@@ -1,0 +1,23 @@
+# AI / 机器学习方向预设
+#
+# 注意：本领域大量工作在会议（NeurIPS / ICML / ICLR / ACL / CVPR …）而不是期刊，
+# Crossref 对会议的收录不稳定。下面的期刊名单是「能被稳定检索到的部分」，
+# 会议论文建议配合 arXiv 或会议官网自行补充。
+
+version: 1
+
+journals:
+  - { id: nat-mach-intell, name: "Nature Machine Intelligence", tier: A }
+  - { id: jmlr,            name: "Journal of Machine Learning Research", tier: A }
+  - { id: tmlr,            name: "Transactions on Machine Learning Research", tier: A }
+  - { id: tpami,           name: "IEEE Transactions on Pattern Analysis and Machine Intelligence", tier: A }
+  - { id: ai-journal,      name: "Artificial Intelligence", tier: A }
+  - { id: nat-commun,      name: "Nature Communications", tier: A }
+  - { id: pnas,            name: "Proceedings of the National Academy of Sciences", tier: A }
+  - { id: science,         name: Science, tier: A }
+  - { id: nature,          name: Nature, tier: A }
+  - { id: tkde,            name: "IEEE Transactions on Knowledge and Data Engineering", tier: B }
+  - { id: neural-networks, name: "Neural Networks", tier: B }
+  - { id: mlj,             name: "Machine Learning", tier: B }
+  - { id: tacl,            name: "Transactions of the Association for Computational Linguistics", tier: A }
+  - { id: jair,            name: "Journal of Artificial Intelligence Research", tier: B }

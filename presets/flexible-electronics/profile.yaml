@@ -1,0 +1,24 @@
+# 柔性电子方向：报告档案
+version: 1
+meta:
+  name: litradar
+  display_name: 文献雷达
+  display_name_en: Literature Radar
+  user_agent: "Litradar/1.0 (mailto:you@example.org; flex-electronics literature monitoring)"
+report:
+  prefix: Flexible_Electronics_Weekly_Report
+  title: 柔性电子前沿文献周报
+  field: PEDOT:PSS 导电薄膜、柔性传感器与航天结构健康监测
+  inspiration_note: "> 以下为 Agent 结合 PEDOT:PSS 导电薄膜、柔性传感器与航天结构健康监测方向的推理，不是原文结论。"
+  flag_note: "PEDOT 的二次掺杂、方阻、膜厚、脱膜与界面结合参数需读全文核实。"
+  method_caveat: "关键词和摘要级筛选可能漏掉未在摘要中写明“flexible/stretchable”的论文，也可能误收仅顺带提及柔性的论文；需结合全文复核。"
+  footer: "*本报告由柔性电子文献雷达自动生成，经 Agent 复核。所有论文元数据来自 Crossref/OpenAlex，DOI 链接指向出版社页面。未核实的数据已明确标注，不以推测替代原文。*"
+  parameter_rows:
+    - 材料体系 / 型号
+    - 材料配比 / 浓度
+    - 柔性基底
+    - 薄膜厚度
+    - 旋涂 / 涂布参数
+    - 干燥 / 退火条件
+    - 制备流程
+    - 表征方法

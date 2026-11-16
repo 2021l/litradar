@@ -1,0 +1,483 @@
+# 柔性电子文献雷达关键词库
+# 说明：
+# 1) gate 用于“是否进入候选池”，不直接决定分数。
+# 2) direction 的 cap 之和 = 相关性满分 30 分。
+# 3) 关键词采用不区分大小写的词边界匹配；连字符与空格视为等价。
+# 4) 允许长期维护，但每次修改后应运行 scripts/health_check.py。
+
+version: 1
+
+gates:
+  # 必须至少命中一个“柔性/可穿戴”核心词
+  core:
+    - flexible
+    - stretchable
+    - wearable
+    - bendable
+    - foldable
+    - conformal
+    - epidermal
+    - electronic skin
+    - e-skin
+    - skin-interfaced
+    - skin-mounted
+    - soft electronics
+    - printed electronics
+    - flexible electronics
+    - stretchable electronics
+    - wearable electronics
+
+  # 除核心词外，还必须至少命中一个“器件/材料/应用”范围词，
+  # 防止把“flexible metal-organic framework”等非电子学论文误收。
+  scope:
+    - electronics
+    - electronic
+    - sensor
+    - sensing
+    - electrode
+    - transistor
+    - conductor
+    - conductive
+    - circuit
+    - display
+    - antenna
+    - actuator
+    - diode
+    - photodetector
+    - transistor
+    - energy harvester
+    - nanogenerator
+    - piezoelectric
+    - triboelectric
+    - thermoelectric
+    - supercapacitor
+    - battery
+    - memory device
+    - thin film
+    - coating
+    - printing
+    - printed
+    - substrate
+    - hydrogel
+    - elastomer
+    - composite
+    - pedot
+    - mxene
+    - graphene
+    - nanowire
+    - carbon nanotube
+    - liquid metal
+    - strain
+    - pressure
+    - tactile
+    - temperature
+    - humidity
+    - gas
+    - biosignal
+    - electrophysiological
+    - health monitoring
+    - structural health monitoring
+    - damage detection
+    - impact
+    - vibration
+    - electroluminescent
+    - interconnector
+    - encapsulation
+
+  # 明显的非研究内容或撤稿/勘误，直接排除出主榜
+  exclude:
+    - correction
+    - erratum
+    - retraction
+    - retracted
+    - editorial
+    - obituary
+    - book review
+    - conference calendar
+    - call for papers
+    - table of contents
+    - front cover
+    - inside front cover
+    - back cover
+    - issue information
+    - cover picture
+    - masthead
+
+directions:
+  - id: flexible_electronics
+    label: 柔性电子基础
+    cap: 6
+    terms:
+      - flexible electronics
+      - stretchable electronics
+      - wearable electronics
+      - soft electronics
+      - printed electronics
+      - flexible device
+      - flexible devices
+      - electronic skin
+      - e-skin
+      - conformal electronics
+      - flexible circuit
+      - flexible semiconductor
+      - flexible transistor
+      - flexible electrode
+      - stretchable conductor
+      - wearable device
+      - wearable devices
+      - skin-interfaced
+      - epidermal electronics
+      - flexible supercapacitor
+      - flexible energy storage
+      - flexible battery
+      - flexible display
+      - flexible photodetector
+      - flexible thermoelectric
+      - flexible nanogenerator
+      - flexible actuator
+      - flexible antenna
+      - flexible memory
+      - flexible artificial skin
+      - free-standing film
+      - free-standing electrode
+      - deformable electronics
+      - mechanically flexible
+      - bendable
+      - foldable
+      - stretchable
+      - wearable
+      - soft electronics
+      - skin-mounted
+      - epidermal
+
+  - id: flexible_sensor
+    label: 柔性传感器
+    cap: 7
+    terms:
+      - flexible sensor
+      - flexible sensors
+      - stretchable sensor
+      - strain sensor
+      - pressure sensor
+      - tactile sensor
+      - temperature sensor
+      - multimodal sensor
+      - wearable sensor
+      - self-powered sensor
+      - impact sensor
+      - vibration sensor
+      - structural health monitoring
+      - damage detection
+      - crack detection
+      - acoustic sensor
+      - electrophysiological sensor
+      - biosensor
+      - humidity sensor
+      - gas sensor
+      - piezoresistive sensor
+      - capacitive sensor
+      - piezoelectric sensor
+      - triboelectric sensor
+      - health monitoring
+      - motion monitoring
+      - pulse monitoring
+      - physiological signal
+      - human-machine interface
+      - robotic skin
+      - pressure mapping
+      - shear sensor
+      - wireless sensor
+
+  - id: conductive_materials
+    label: 导电材料
+    cap: 6
+    terms:
+      - PEDOT
+      - PEDOT:PSS
+      - PEDOT-PSS
+      - poly(3,4-ethylenedioxythiophene)
+      - poly(3,4-ethylenedioxythiophene):poly(styrene sulfonate)
+      - conductive polymer
+      - conducting polymer
+      - polyaniline
+      - polypyrrole
+      - MXene
+      - Ti3C2
+      - graphene
+      - graphene oxide
+      - reduced graphene oxide
+      - rGO
+      - carbon nanotube
+      - carbon nanotubes
+      - CNT
+      - silver nanowire
+      - silver nanowires
+      - AgNW
+      - silver flake
+      - gold nanomesh
+      - nanomesh
+      - liquid metal
+      - EGaIn
+      - gallium
+      - conductive hydrogel
+      - ionic gel
+      - ionogel
+      - organohydrogel
+      - ionic hydrogel
+      - conductive elastomer
+      - metal nanocomposite
+      - two-dimensional material
+      - 2D material
+      - transition metal carbide
+      - carbon black
+      - carbon nanofiber
+      - graphite
+      - copper nanowire
+
+  - id: substrates_composites
+    label: 柔性基底与复合材料
+    cap: 4
+    terms:
+      - PDMS
+      - polydimethylsiloxane
+      - TPU
+      - thermoplastic polyurethane
+      - polyimide
+      - PI film
+      - PI substrate
+      - PET substrate
+      - PET film
+      - polyethylene terephthalate
+      - PEN substrate
+      - polyethylene naphthalate
+      - Ecoflex
+      - SEBS
+      - styrene-ethylene-butylene-styrene
+      - silicone elastomer
+      - elastomer
+      - hydrogel
+      - flexible substrate
+      - stretchable substrate
+      - polymer composite
+      - interfacial adhesion
+      - encapsulation
+      - transfer printing
+      - delamination
+      - peel-off
+      - freestanding film
+      - free-standing film
+      - wrinkle
+      - serpentine
+      - island-bridge
+      - origami
+      - kirigami
+
+  - id: extreme_environment
+    label: 极端环境与航天应用
+    cap: 4
+    terms:
+      - extreme environment
+      - aerospace
+      - space electronics
+      - spacecraft
+      - satellite
+      - radiation resistant
+      - radiation-tolerant
+      - radiation tolerant
+      - high-temperature electronics
+      - high temperature
+      - low temperature
+      - cryogenic
+      - thermal cycling
+      - thermal shock
+      - vacuum stability
+      - vacuum ultraviolet
+      - atomic oxygen
+      - UV resistance
+      - ultraviolet resistance
+      - mechanical shock
+      - impact monitoring
+      - vibration monitoring
+      - structural health monitoring
+      - spacecraft structural health monitoring
+      - space environment
+      - orbital environment
+      - space
+      - harsh environment
+      - reliability
+      - durability
+      - cyclic stability
+      - environmental stability
+      - long-term stability
+      - impact
+      - vibration
+      - thermal
+      - vacuum
+      - ultraviolet
+
+  - id: fabrication
+    label: 薄膜加工与制备
+    cap: 3
+    terms:
+      - spin coating
+      - spin-coated
+      - spray coating
+      - spray-coated
+      - blade coating
+      - bar coating
+      - inkjet printing
+      - screen printing
+      - gravure printing
+      - aerosol jet printing
+      - transfer printing
+      - electrospinning
+      - layer-by-layer
+      - vapor phase polymerization
+      - chemical vapor deposition
+      - laser patterning
+      - laser scribing
+      - thin film deposition
+      - drop casting
+      - dip coating
+      - meniscus coating
+      - slot-die coating
+      - 3D printing
+      - photolithography
+      - vacuum filtration
+      - freeze drying
+      - electrodeposition
+      - printing
+      - coating
+      - patterning
+      - laser-induced
+
+# 专项追踪标记：只影响分组和排序 tie-break，不直接加分。
+flags:
+  pedot:
+    label: PEDOT / 导电聚合物
+    terms:
+      - PEDOT
+      - PEDOT:PSS
+      - conductive polymer
+      - conducting polymer
+      - polyaniline
+      - polypyrrole
+      - secondary doping
+      - DMSO
+      - ethylene glycol
+      - sulfuric acid treatment
+      - conductivity
+      - sheet resistance
+      - square resistance
+      - film thickness
+      - thin film
+      - peel-off
+      - delamination
+      - transfer
+  sensor:
+    label: 柔性传感器
+    terms:
+      - strain sensor
+      - pressure sensor
+      - tactile sensor
+      - temperature sensor
+      - multimodal sensor
+      - wearable sensor
+      - self-powered sensor
+      - impact sensor
+      - vibration sensor
+      - structural health monitoring
+      - damage detection
+      - crack detection
+      - biosensor
+      - electronic skin
+      - e-skin
+  extreme:
+    label: 极端环境 / 航天
+    terms:
+      - extreme environment
+      - aerospace
+      - spacecraft
+      - satellite
+      - space environment
+      - orbital environment
+      - radiation
+      - high temperature
+      - low temperature
+      - cryogenic
+      - thermal cycling
+      - thermal shock
+      - vacuum
+      - atomic oxygen
+      - ultraviolet
+      - UV
+      - mechanical shock
+      - impact monitoring
+      - vibration monitoring
+      - structural health monitoring
+  fabrication:
+    label: 制备工艺
+    terms:
+      - spin coating
+      - spray coating
+      - blade coating
+      - bar coating
+      - inkjet printing
+      - screen printing
+      - transfer printing
+      - electrospinning
+      - layer-by-layer
+      - vapor phase polymerization
+      - laser patterning
+      - drop casting
+      - dip coating
+      - slot-die coating
+  transfer:
+    label: 脱膜 / 转移
+    terms:
+      - peel-off
+      - delamination
+      - transfer printing
+      - freestanding film
+      - release layer
+      - sacrificial layer
+      - water-assisted transfer
+      - lift-off
+
+# 综述识别：只用于标记，最终由 Agent 核验标题/摘要/论文类型。
+review_patterns:
+  - "\\breview\\b"
+  - "\\bperspective\\b"
+  - "\\boverview\\b"
+  - "\\broadmap\\b"
+  - "\\btutorial\\b"
+  - "recent (advances|progress|developments)"
+  - "advances in"
+  - "progress in"
+  - "state of the art"
+  - "a survey"
+  - "systematic review"
+  - "meta-analysis"
+
+# 仅用于同分排序，不进入 100 分评分。
+priority_tiebreak:
+  - terms: [PEDOT, PEDOT:PSS, conductive polymer, conducting polymer]
+    points: 3
+  - terms: [aerospace, spacecraft, satellite, space environment, extreme environment]
+    points: 3
+  - terms: [impact sensor, impact monitoring, vibration monitoring, structural health monitoring, damage detection]
+    points: 2
+  - terms: [peel-off, transfer printing, delamination, freestanding film]
+    points: 2
+  - terms: [strain sensor, pressure sensor, tactile sensor, electronic skin]
+    points: 2
+
+next_week_seed_keywords:
+  - PEDOT:PSS secondary doping DMSO
+  - PEDOT film transfer delamination
+  - flexible strain sensor gauge factor
+  - impact monitoring flexible sensor
+  - spacecraft structural health monitoring
+  - flexible electronics thermal cycling vacuum
+  - PDMS TPU interfacial adhesion stretchable conductor
+  - MXene wearable pressure sensor

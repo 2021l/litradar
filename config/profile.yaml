@@ -1,0 +1,53 @@
+# litradar 领域档案
+#
+# 这里决定「报告长什么样、你的领域叫什么」。
+# 换领域 = 改这份文件 + config/journals.yaml + config/keywords.yaml，
+# 或者直接用现成预设：
+#
+#   python scripts/use_preset.py --list
+#   python scripts/use_preset.py --use ai-ml
+#
+# 注意：切换预设会覆盖 config/ 下的 journals.yaml 与 keywords.yaml，
+# 被覆盖的文件会先备份成 *.bak-<时间戳>。
+
+version: 1
+
+meta:
+  name: litradar
+  display_name: 文献雷达
+  display_name_en: Literature Radar
+  # Crossref / OpenAlex 建议带上联系方式，便于对方在大流量时联系你
+  user_agent: "Litradar/1.0 (mailto:you@example.org; academic literature monitoring)"
+
+report:
+  # 报告文件名前缀，最终生成 <prefix>_YYYY-MM-DD.md
+  prefix: Literature_Radar_Weekly_Report
+
+  title: 科研前沿文献周报
+
+  # 报告副标题里的「面向 XXX」
+  field: 你的研究方向（建议写具体，例如：固态电池界面化学）
+
+  # 深读章节「对科研工作的启发」前的免责声明
+  inspiration_note: "> 以下为 Agent 结合本领域研究方向的推理，不是原文结论。"
+
+  # 附加在专项追踪表后面的提示，可留空
+  flag_note: ""
+
+  # 报告「方法与数据限制」中与领域相关的那一条
+  method_caveat: "关键词与摘要级筛选可能漏检，也可能误收；需结合全文复核。"
+
+  # 报告页脚
+  footer: "*本报告由文献雷达自动生成，经 Agent 复核。所有论文元数据来自 Crossref/OpenAlex，DOI 链接指向出版社页面。未核实的数据已明确标注，不以推测替代原文。*"
+
+  # 参数表里「即使原文没写也要列出来」的标准行。
+  # 请按你的领域改：材料领域可以写「配比 / 浓度」，临床可以写「入组标准 / 终点指标」。
+  parameter_rows:
+    - 研究对象 / 体系
+    - 关键材料 / 试剂
+    - 关键参数 / 条件
+    - 样本 / 数据规模
+    - 方法 / 设备
+    - 评价指标
+    - 对照 / 基线
+    - 数据处理 / 统计

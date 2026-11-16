@@ -1,0 +1,349 @@
+# 期刊白名单（可维护）
+# tier: A=综合/顶级专业, B=材料/传感器/柔性电子专业, C=电子工程与器件, R=综述
+# issn 已通过 OpenAlex sources 逐条核对（2026-11-16）。
+# metrics 留空表示尚未接入可核实的 JCR / 中科院分区数据；禁止用估算值填充。
+
+version: 1
+timezone: Asia/Shanghai
+review_tier: R
+
+journals:
+  - id: nature
+    name: Nature
+    tier: A
+    publisher: Springer Nature
+    issn: ["0028-0836", "1476-4687"]
+    openalex_source_id: S137773608
+    homepage: https://www.nature.com/nature
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: science
+    name: Science
+    tier: A
+    publisher: AAAS
+    issn: ["0036-8075", "1095-9203"]
+    openalex_source_id: S3880285
+    homepage: https://www.science.org/journal/science
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: nature_materials
+    name: Nature Materials
+    tier: A
+    publisher: Springer Nature
+    issn: ["1476-1122", "1476-4660"]
+    openalex_source_id: S103895331
+    homepage: https://www.nature.com/nmat
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: nature_electronics
+    name: Nature Electronics
+    tier: A
+    publisher: Springer Nature
+    issn: ["2520-1131"]
+    openalex_source_id: S4210239724
+    homepage: https://www.nature.com/natelectron
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: nature_nanotechnology
+    name: Nature Nanotechnology
+    tier: A
+    publisher: Springer Nature
+    issn: ["1748-3387", "1748-3395"]
+    openalex_source_id: S7822423
+    homepage: https://www.nature.com/nnano
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: nature_communications
+    name: Nature Communications
+    tier: A
+    publisher: Springer Nature
+    issn: ["2041-1723"]
+    openalex_source_id: S64187185
+    homepage: https://www.nature.com/ncomms
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: nature_biomedical_engineering
+    name: Nature Biomedical Engineering
+    tier: A
+    publisher: Springer Nature
+    issn: ["2157-846X"]
+    openalex_source_id: S2764624792
+    homepage: https://www.nature.com/natbioeng
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: advanced_materials
+    name: Advanced Materials
+    tier: A
+    publisher: Wiley-VCH
+    issn: ["0935-9648", "1521-4095"]
+    openalex_source_id: S99352657
+    homepage: https://onlinelibrary.wiley.com/journal/15214095
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: advanced_functional_materials
+    name: Advanced Functional Materials
+    tier: A
+    publisher: Wiley-VCH
+    issn: ["1616-301X", "1616-3028"]
+    openalex_source_id: S135204980
+    homepage: https://onlinelibrary.wiley.com/journal/16163028
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: acs_nano
+    name: ACS Nano
+    tier: A
+    publisher: American Chemical Society
+    issn: ["1936-0851", "1936-086X"]
+    openalex_source_id: S145476921
+    homepage: https://pubs.acs.org/journal/ancac3
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: nano_micro_letters
+    name: Nano-Micro Letters
+    tier: A
+    publisher: Springer Nature / Shanghai Jiao Tong University
+    issn: ["2150-5551", "2311-6706"]
+    openalex_source_id: S9070373
+    homepage: https://link.springer.com/journal/40820
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: matter
+    name: Matter
+    tier: A
+    publisher: Cell Press / Elsevier
+    issn: ["2590-2385", "2590-2393"]
+    openalex_source_id: S4210178557
+    homepage: https://www.cell.com/matter
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: science_advances
+    name: Science Advances
+    tier: A
+    publisher: AAAS
+    issn: ["2375-2548"]
+    openalex_source_id: S2737427234
+    homepage: https://www.science.org/journal/sciadv
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: advanced_science
+    name: Advanced Science
+    tier: A
+    publisher: Wiley-VCH
+    issn: ["2198-3844"]
+    openalex_source_id: S2737737698
+    homepage: https://onlinelibrary.wiley.com/journal/21983844
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: npj_flexible_electronics
+    name: npj Flexible Electronics
+    tier: A
+    publisher: Springer Nature
+    issn: ["2397-4621"]
+    openalex_source_id: S4210223376
+    homepage: https://www.nature.com/npjflexelectron
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: nano_energy
+    name: Nano Energy
+    tier: B
+    publisher: Elsevier
+    issn: ["2211-2855", "2211-3282"]
+    openalex_source_id: S2497301991
+    homepage: https://www.sciencedirect.com/journal/nano-energy
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: small
+    name: Small
+    tier: B
+    publisher: Wiley-VCH
+    issn: ["1613-6810", "1613-6829"]
+    openalex_source_id: S94619837
+    homepage: https://onlinelibrary.wiley.com/journal/16136829
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: nano_letters
+    name: Nano Letters
+    tier: B
+    publisher: American Chemical Society
+    issn: ["1530-6984", "1530-6992"]
+    openalex_source_id: S143846845
+    homepage: https://pubs.acs.org/journal/nalefd
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: biosensors_bioelectronics
+    name: Biosensors and Bioelectronics
+    tier: B
+    publisher: Elsevier
+    issn: ["0956-5663", "1873-4235"]
+    openalex_source_id: S156181945
+    homepage: https://www.sciencedirect.com/journal/biosensors-and-bioelectronics
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: acs_sensors
+    name: ACS Sensors
+    tier: B
+    publisher: American Chemical Society
+    issn: ["2379-3694"]
+    openalex_source_id: S2764631046
+    homepage: https://pubs.acs.org/journal/ascefj
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: acs_ami
+    name: ACS Applied Materials & Interfaces
+    tier: B
+    publisher: American Chemical Society
+    issn: ["1944-8244", "1944-8252"]
+    openalex_source_id: S164001016
+    homepage: https://pubs.acs.org/journal/aamick
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: advanced_electronic_materials
+    name: Advanced Electronic Materials
+    tier: B
+    publisher: Wiley-VCH
+    issn: ["2199-160X"]
+    openalex_source_id: S2765003236
+    homepage: https://onlinelibrary.wiley.com/journal/2199160x
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: advanced_materials_technologies
+    name: Advanced Materials Technologies
+    tier: B
+    publisher: Wiley-VCH
+    issn: ["2365-709X"]
+    openalex_source_id: S2765038284
+    homepage: https://onlinelibrary.wiley.com/journal/2365709x
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: jmcc
+    name: Journal of Materials Chemistry C
+    tier: B
+    publisher: Royal Society of Chemistry
+    issn: ["2050-7526", "2050-7534"]
+    openalex_source_id: S2500738039
+    homepage: https://pubs.rsc.org/en/journals/journalissues/tc
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: soft_matter
+    name: Soft Matter
+    tier: B
+    publisher: Royal Society of Chemistry
+    issn: ["1744-683X", "1744-6848"]
+    openalex_source_id: S6377669
+    homepage: https://pubs.rsc.org/en/journals/journalissues/sm
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: sensors_actuators_b
+    name: "Sensors and Actuators B: Chemical"
+    tier: B
+    publisher: Elsevier
+    issn: ["0925-4005", "1873-3077"]
+    openalex_source_id: S98455728
+    homepage: https://www.sciencedirect.com/journal/sensors-and-actuators-b-chemical
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: microelectronic_engineering
+    name: Microelectronic Engineering
+    tier: B
+    publisher: Elsevier
+    issn: ["0167-9317", "1873-5568"]
+    openalex_source_id: S158028765
+    homepage: https://www.sciencedirect.com/journal/microelectronic-engineering
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: ieee_tim
+    name: IEEE Transactions on Instrumentation and Measurement
+    tier: C
+    publisher: IEEE
+    issn: ["0018-9456", "1557-9662"]
+    openalex_source_id: S10892749
+    homepage: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=19
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: ieee_edl
+    name: IEEE Electron Device Letters
+    tier: C
+    publisher: IEEE
+    issn: ["0741-3106", "1558-0563"]
+    openalex_source_id: S19887683
+    homepage: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=55
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: ieee_ted
+    name: IEEE Transactions on Electron Devices
+    tier: C
+    publisher: IEEE
+    issn: ["0018-9383", "1557-9646"]
+    openalex_source_id: S162355128
+    homepage: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=16
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: apl
+    name: Applied Physics Letters
+    tier: C
+    publisher: AIP Publishing
+    issn: ["0003-6951", "1077-3118"]
+    openalex_source_id: S105243760
+    homepage: https://pubs.aip.org/aip/apl
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: nature_reviews_materials
+    name: Nature Reviews Materials
+    tier: R
+    publisher: Springer Nature
+    issn: ["2058-8437"]
+    openalex_source_id: S2764917516
+    homepage: https://www.nature.com/natrevmats
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: progress_materials_science
+    name: Progress in Materials Science
+    tier: R
+    publisher: Elsevier
+    issn: ["0079-6425", "1873-2208"]
+    openalex_source_id: S88404446
+    homepage: https://www.sciencedirect.com/journal/progress-in-materials-science
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true
+
+  - id: progress_polymer_science
+    name: Progress in Polymer Science
+    tier: R
+    publisher: Elsevier
+    issn: ["0079-6700", "1873-1619"]
+    openalex_source_id: S119685760
+    homepage: https://www.sciencedirect.com/journal/progress-in-polymer-science
+    metrics: {impact_factor: null, impact_factor_year: null, partition: null, source: "未接入 JCR/分区数据"}
+    enabled: true

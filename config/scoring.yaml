@@ -1,0 +1,152 @@
+# 论文评分模型（100 分制）
+# 重要：脚本输出的是“机器预评分”。创新性 25 分只能由 Agent 阅读摘要/全文后复核，
+# 脚本给出的 innovation 分仅依据摘要中的新颖性线索，必须在报告中标注为“待复核/预评分”。
+
+version: 1
+total: 100
+
+weights:
+  relevance: 30
+  innovation: 25
+  materials_and_process: 15
+  results: 15
+  journal: 15
+
+relevance:
+  # 通过门槛即给基础分，避免“关键词命中少但主题明确”的论文被系统性压低。
+  base: 8
+  direction_coverage_points: 2
+  title_hit_points: 2
+  abstract_hit_points: 1
+  use_unique_terms: true
+  term_points_cap: 30
+
+innovation:
+  base_if_any_cue: 6
+  cue_points: 2.5
+  cue_cap: 12
+  superlative_points: 2
+  superlative_cap: 5
+  cues:
+    - novel
+    - new
+    - first
+    - unprecedented
+    - breakthrough
+    - strategy
+    - mechanism
+    - insight
+    - record
+    - ultra-thin
+    - ultrathin
+    - highly sensitive
+    - self-powered
+    - wireless
+    - bioinspired
+    - origami
+    - kirigami
+    - crumpled
+    - monolithic
+    - scalable
+    - programmable
+    - machine learning
+    - digital twin
+    - in situ
+    - operando
+    - decoupled
+    - self-healing
+    - reconfigurable
+    - strain-insensitive
+    - temperature-independent
+  superlatives:
+    - highest
+    - record-high
+    - enhanced by
+    - improved by
+    - times higher
+    - fold improvement
+    - orders of magnitude
+    - ultralow
+    - ultrastable
+
+materials_and_process:
+  base_if_any: 3
+  material_points: 2
+  material_cap: 9
+  process_points: 2
+  process_cap: 6
+
+results:
+  quantitative_points: 2
+  quantitative_cap: 10
+  comparison_points: 1
+  comparison_cap: 5
+  comparison_terms:
+    - enhanced
+    - improved
+    - superior
+    - outperform
+    - outperforms
+    - compared with
+    - compared to
+    - record
+    - times
+    - fold
+    - orders of magnitude
+    - ultralow
+    - ultrastable
+  # 识别 %、kPa、MPa、S/cm、S m-1、ohm/sq、Ω/sq、GF、ppm、Hz、cycles、h 等带单位数值
+  unit_pattern: "(?:%|wt\\.?%|vol\\.?%|mg/mL|mg ml|kPa|MPa|GPa|Pa|S/cm|S cm|S/m|S m|Ω/sq|ohm/sq|Ω|ohm|GF|ppm|Hz|kHz|MHz|cycles?|h|hours?|min|s|ms|µm|um|nm|mm|cm|mAh|V|mV|mA|µA|uA|dB|dpi|ppi)"
+
+journal:
+  tier_points:
+    A: 12
+    B: 9
+    C: 7
+    R: 8
+  flagship_bonus:
+    Nature: 3
+    Science: 3
+  nature_subjournal_bonus: 2
+  cap: 15
+
+confidence:
+  high_min_abstract_chars: 600
+  medium_min_abstract_chars: 200
+  metadata_only_score_cap: 70
+
+ranking:
+  # 综述不进入原创研究主榜；单列趋势观察。
+  exclude_reviews_from_main_rank: true
+  require_abstract_for_main_rank: true
+  # 没有摘要的论文放入“待核验附录”，不直接给高排名。
+  metadata_only_action: appendix
+
+bands:
+  - min: 90
+    label: 优先精读
+    action: TOP 5 深度解读
+  - min: 80
+    label: 推荐阅读
+    action: 进入 TOP 10
+  - min: 70
+    label: 技术参考
+    action: 方法/参数关注
+  - min: 60
+    label: 相关性一般
+    action: 补充阅读
+  - min: 0
+    label: 暂不推荐
+    action: 不进入核心周报
+
+dedup:
+  title_similarity_threshold: 0.92
+  year_tolerance: 1
+
+evidence:
+  # 没有摘要时不得进入主榜；不得根据标题推断实验参数。
+  require_abstract_for_core: true
+  fulltext_preferred: true
+  abstract_only_label: "仅依据公开摘要与元数据，未核验全文"
+  missing_parameter_label: "原文未披露"
+  unverified_metric_label: "未核实"

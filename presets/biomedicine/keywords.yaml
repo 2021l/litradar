@@ -1,0 +1,119 @@
+# 生物医学 / 临床方向关键词
+
+version: 1
+
+gates:
+  core: []
+  scope: []
+  exclude:
+    - correction
+    - erratum
+    - retraction
+    - retracted
+    - editorial
+    - obituary
+    - book review
+    - correspondence
+    - table of contents
+    - issue information
+    - masthead
+
+directions:
+  - id: study_design
+    label: 研究设计与证据等级
+    cap: 12
+    terms:
+      - randomized controlled trial
+      - randomised controlled trial
+      - placebo-controlled
+      - double-blind
+      - cohort study
+      - case-control
+      - cross-sectional
+      - prospective
+      - retrospective
+      - meta-analysis
+      - systematic review
+      - phase 1
+      - phase 2
+      - phase 3
+  - id: disease_mechanism
+    label: 疾病机制与靶点
+    cap: 10
+    terms:
+      - mechanism
+      - signaling pathway
+      - biomarker
+      - target
+      - knockout
+      - CRISPR
+      - single-cell
+      - transcriptomic
+      - proteomic
+      - epigenomic
+      - immunology
+      - inflammation
+      - metabolism
+  - id: intervention_outcome
+    label: 干预与结局
+    cap: 8
+    terms:
+      - efficacy
+      - safety
+      - adverse event
+      - overall survival
+      - progression-free survival
+      - hazard ratio
+      - odds ratio
+      - immunotherapy
+      - vaccine
+      - antibody
+      - gene therapy
+      - cell therapy
+
+flags:
+  clinical_trial:
+    label: 临床试验
+    terms:
+      - randomized controlled trial
+      - randomised controlled trial
+      - phase 2
+      - phase 3
+      - primary endpoint
+      - adverse event
+  mechanism_target:
+    label: 机制与新靶点
+    terms:
+      - mechanism
+      - signaling pathway
+      - biomarker
+      - CRISPR
+      - single-cell
+  translational:
+    label: 转化与产业
+    terms:
+      - translational
+      - biobank
+      - real-world evidence
+      - regulatory
+      - approval
+
+review_patterns:
+  - "\\breview\\b"
+  - "\\bperspective\\b"
+  - "\\boverview\\b"
+  - "\\broadmap\\b"
+  - "systematic review"
+  - "meta-analysis"
+  - "state of the art"
+  - "consensus statement"
+  - "guideline"
+
+priority_tiebreak:
+  - terms: [randomized controlled trial, phase 3, overall survival]
+    points: 2
+
+next_week_seed_keywords:
+  - randomized controlled trial phase 3 efficacy
+  - single-cell biomarker mechanism
+  - real-world evidence safety

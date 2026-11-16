@@ -1,0 +1,38 @@
+# 期刊白名单 —— 决定「雷达扫哪些刊」
+#
+# 这是整套配置里最关键的一步：名单选错了，再好的评分也没用。
+# 建议挑 15~40 本：本领域公认的顶级刊 + 你反复读到的好工作所在刊物 + 1~3 本综述刊。
+#
+# 字段
+#   id      必填，短标识，脚本里 --journals 用它过滤
+#   name    必填，期刊全称（与 Crossref 的 container-title 对齐）
+#   tier    必填，A / B / C / R（R 表示综述型刊物）
+#   issn    可选但强烈建议，格式 "1234-5678"
+#           填了：用 ISSN 精确检索，快且不会误收
+#           不填：退化为「刊名检索 + 刊名模糊校验」，能跑，但慢一些、偶有误收
+#   enabled 可选，默认 true，用来临时停掉某本刊
+#
+# 怎样查到 ISSN：期刊官网 About / 版权页，或在 https://portal.issn.org 搜索刊名。
+# 填好之后跑一次 `python scripts/health_check.py` 会统一体检。
+#
+# ↓↓↓ 下面是跨学科的起点名单（故意不填 ISSN，避免给出未经核对的值）↓↓↓
+# 请把它换成你自己领域的刊物。
+
+version: 1
+
+journals:
+  - { id: nature,        name: Nature,                        tier: A }
+  - { id: science,       name: Science,                       tier: A }
+  - { id: pnas,          name: "Proceedings of the National Academy of Sciences", tier: A }
+  - { id: nat-commun,    name: "Nature Communications",       tier: A }
+  - { id: sci-adv,       name: "Science Advances",            tier: A }
+  - { id: nat-mater,     name: "Nature Materials",            tier: A }
+  - { id: nat-energy,    name: "Nature Energy",               tier: A }
+  - { id: nat-nano,      name: "Nature Nanotechnology",       tier: A }
+  - { id: adv-mater,     name: "Advanced Materials",          tier: A }
+  - { id: jacs,          name: "Journal of the American Chemical Society", tier: A }
+  - { id: angew,         name: "Angewandte Chemie International Edition", tier: A }
+  - { id: prl,           name: "Physical Review Letters",     tier: A }
+  - { id: cell,          name: Cell,                          tier: A }
+  - { id: nat-med,       name: "Nature Medicine",              tier: A }
+  - { id: ieee-ted,      name: "IEEE Transactions on Electron Devices", tier: B }

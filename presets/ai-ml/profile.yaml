@@ -1,0 +1,24 @@
+# AI / 机器学习方向：报告档案
+version: 1
+meta:
+  name: litradar
+  display_name: 文献雷达
+  display_name_en: Literature Radar
+  user_agent: "Litradar/1.0 (mailto:you@example.org; AI literature monitoring)"
+report:
+  prefix: AI_ML_Weekly_Report
+  title: AI / 机器学习前沿周报
+  field: 机器学习、大模型与智能系统
+  inspiration_note: "> 以下为 Agent 结合本方向研究脉络的推理，不是原文结论。"
+  flag_note: "会议论文（NeurIPS / ICML / ICLR 等）不在 Crossref 期刊检索范围内，需另行补充。"
+  method_caveat: "摘要级筛选可能漏掉只在正文给出实验结果的工作；与会议版本同名的工作需注意版本差异。"
+  footer: "*本报告由文献雷达自动生成，经 Agent 复核。元数据来自 Crossref/OpenAlex，DOI 链接指向出版社页面。*"
+  parameter_rows:
+    - 任务 / 数据
+    - 模型与规模
+    - 训练方法 / 优化器
+    - 主要指标
+    - 基线对比
+    - 算力 / 推理成本
+    - 消融实验
+    - 代码 / 数据可用性

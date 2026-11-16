@@ -1,0 +1,21 @@
+# 生物医学 / 临床方向预设
+
+version: 1
+
+journals:
+  - { id: nejm,        name: "New England Journal of Medicine", tier: A }
+  - { id: lancet,      name: "The Lancet", tier: A }
+  - { id: jama,        name: "JAMA", tier: A }
+  - { id: bmj,         name: "BMJ", tier: A }
+  - { id: nat-med,     name: "Nature Medicine", tier: A }
+  - { id: cell,        name: Cell, tier: A }
+  - { id: nature,      name: Nature, tier: A }
+  - { id: science,     name: Science, tier: A }
+  - { id: scitranslmed, name: "Science Translational Medicine", tier: A }
+  - { id: nat-biotech, name: "Nature Biotechnology", tier: A }
+  - { id: nat-genetics, name: "Nature Genetics", tier: A }
+  - { id: circulation, name: Circulation, tier: A }
+  - { id: elife,       name: eLife, tier: B }
+  - { id: plos-med,    name: "PLOS Medicine", tier: B }
+  - { id: annals,      name: "Annals of Internal Medicine", tier: A }
+  - { id: jci,         name: "Journal of Clinical Investigation", tier: B }

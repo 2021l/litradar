@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.spec
+
+# 运行时数据：不纳入版本库（脚本会自动创建这些目录）
+database/
+logs/
+state/
+reports/
+
+# 切换预设时产生的备份
+*.bak-*
+config/*.bak-*

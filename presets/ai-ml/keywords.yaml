@@ -1,0 +1,115 @@
+# AI / 机器学习方向关键词
+
+version: 1
+
+gates:
+  core: []
+  scope: []
+  exclude:
+    - correction
+    - erratum
+    - retraction
+    - retracted
+    - editorial
+    - obituary
+    - book review
+    - call for papers
+    - table of contents
+    - issue information
+    - masthead
+
+directions:
+  - id: foundation_models
+    label: 基础模型
+    cap: 12
+    terms:
+      - large language model
+      - language model
+      - foundation model
+      - transformer
+      - diffusion model
+      - multimodal
+      - pre-training
+      - pretraining
+      - fine-tuning
+      - instruction tuning
+      - in-context learning
+  - id: learning_methods
+    label: 学习方法
+    cap: 10
+    terms:
+      - reinforcement learning
+      - self-supervised
+      - contrastive learning
+      - representation learning
+      - federated learning
+      - few-shot
+      - zero-shot
+      - transfer learning
+      - continual learning
+      - graph neural network
+      - state space model
+  - id: evaluation_application
+    label: 评测与应用
+    cap: 8
+    terms:
+      - benchmark
+      - evaluation
+      - dataset
+      - ablation
+      - agents
+      - retrieval-augmented
+      - reasoning
+      - code generation
+      - alignment
+      - safety
+      - interpretability
+
+flags:
+  foundation_model:
+    label: 基础模型 / LLM
+    terms:
+      - large language model
+      - foundation model
+      - transformer
+      - diffusion model
+      - multimodal
+  efficiency:
+    label: 训练与推理效率
+    terms:
+      - efficient
+      - quantization
+      - distillation
+      - pruning
+      - sparse
+      - throughput
+      - latency
+  evaluation:
+    label: 评测与可信性
+    terms:
+      - benchmark
+      - evaluation
+      - robustness
+      - safety
+      - alignment
+      - hallucination
+
+review_patterns:
+  - "\\breview\\b"
+  - "\\bsurvey\\b"
+  - "\\bperspective\\b"
+  - "\\boverview\\b"
+  - "\\broadmap\\b"
+  - "\\btutorial\\b"
+  - "position paper"
+  - "systematic review"
+  - "meta-analysis"
+
+priority_tiebreak:
+  - terms: [benchmark, state of the art, outperforms]
+    points: 2
+
+next_week_seed_keywords:
+  - large language model reasoning benchmark
+  - retrieval-augmented generation evaluation
+  - efficient inference quantization

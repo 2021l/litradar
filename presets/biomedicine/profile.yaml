@@ -1,0 +1,24 @@
+# 生物医学 / 临床方向：报告档案
+version: 1
+meta:
+  name: litradar
+  display_name: 文献雷达
+  display_name_en: Literature Radar
+  user_agent: "Litradar/1.0 (mailto:you@example.org; biomedical literature monitoring)"
+report:
+  prefix: Biomedicine_Weekly_Report
+  title: 生物医学前沿文献周报
+  field: 临床研究、疾病机制与转化医学
+  inspiration_note: "> 以下为 Agent 结合本方向研究脉络的推理，不是原文结论；不能替代临床判断。"
+  flag_note: "临床类结论必须回到原文与终点指标，不以摘要数字替代。"
+  method_caveat: "摘要级筛选可能漏掉只在正文报告主要终点的研究；预印本与实际发表版本可能不一致。"
+  footer: "*本报告由文献雷达自动生成，经 Agent 复核。元数据来自 Crossref/OpenAlex；本报告不构成临床建议。*"
+  parameter_rows:
+    - 研究类型 / 分期
+    - 样本量 / 人群
+    - 入组与排除标准
+    - 干预 / 对照
+    - 主要终点
+    - 关键效应量
+    - 随访时长
+    - 局限 / 偏倚风险
