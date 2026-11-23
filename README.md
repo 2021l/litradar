@@ -2,6 +2,10 @@
 
 > 每周扫一遍你关心的期刊，告诉你这周真正发生了什么。
 
+[![CI](https://github.com/2021l/litradar/actions/workflows/ci.yml/badge.svg)](https://github.com/2021l/litradar/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 做这个是因为踩过坑。曾经连续几个月只盯一个材料方向，周报做得挺漂亮，后来才发现
 同一时期软体机器人那边冒出好几篇能直接借用的工作，全被自己的关键词挡在外面了。
 
@@ -10,6 +14,19 @@
 
 你写一份配置声明「我读哪些刊、关心哪些方向」，它每周把新论文捞回来、去重、打分、排序，
 写成一份中文周报。柔性电子、AI、生物医学、材料都能用，换配置就是换领域。
+
+*English: a config-driven literature radar. You declare which journals to watch and which
+directions matter; it pulls new papers weekly, dedupes by DOI, scores and ranks them, and writes
+a weekly report that keeps what the paper actually says separate from what the agent inferred.
+No API keys — Crossref and OpenAlex only. Swap the config and it becomes a radar for another field.*
+
+### 先看一份产出
+
+不想装任何东西？这里有一份真实跑出来的报告（23 KB，删了部分深读和附录）：
+
+👉 [examples/sample-weekly-report.md](examples/sample-weekly-report.md)
+
+看完觉得有用再往下装。
 
 ## 它解决什么问题
 

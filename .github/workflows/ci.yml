@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: 配置体检
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 健康检查（不联网）
+        run: python scripts/health_check.py --no-network
+
+      - name: 预设可切换
+        run: |
+          python scripts/use_preset.py --list
+          python scripts/use_preset.py --use ai-ml --dry-run
+
+      - name: 报告模板占位符齐全
+        run: |
+          python - <<'PY'
+          import pathlib, sys
+          text = pathlib.Path("templates/weekly_report.md").read_text(encoding="utf-8")
+          needed = ["report_title", "report_subtitle", "sections", "top_table",
+                    "deep_dives", "methods_table", "next_keywords", "limitations", "footer"]
+          missing = [k for k in needed if "{{" + k + "}}" not in text]
+          if missing:
+              print("模板缺少占位符:", missing)
+              sys.exit(1)
+          print("模板占位符齐全:", len(needed))
+          PY
