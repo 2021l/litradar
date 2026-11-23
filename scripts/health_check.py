@@ -51,7 +51,7 @@ def main() -> int:
     if len(ids) != len(set(ids)):
         errors.append("journals.yaml 存在重复 id")
     for j in enabled:
-        if not j.get("issn"):
+        if not j.get("issn") and not j.get("query"):
             warnings.append(f"{j.get('id')}: 未填 ISSN，将按刊名检索（较慢，可能误收同名刊物）")
         if j.get("tier") not in ("A", "B", "C", "R"):
             errors.append(f"{j.get('id')}: tier 非法")

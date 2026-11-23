@@ -5,18 +5,21 @@
 #
 # 字段
 #   id      必填，短标识，脚本里 --journals 用它过滤
-#   name    必填，期刊全称（与 Crossref 的 container-title 对齐）
 #   tier    必填，A / B / C / R（R 表示综述型刊物）
-#   issn    可选但强烈建议，格式 "1234-5678"
-#           填了：用 ISSN 精确检索，快且不会误收
-#           不填：退化为「刊名检索 + 刊名模糊校验」，能跑，但慢一些、偶有误收
-#   enabled 可选，默认 true，用来临时停掉某本刊
+#   enabled 可选，默认 true，用来临时停掉某个条目
+#
+# 检索方式三选一（按优先级）：
+#   issn    "1234-5678"。精确、快，优先用它
+#   query   主题检索式。不知道盯哪几本刊、或者想扫全领域时用，
+#           例如 "solid-state battery interface"，会跨期刊搜
+#   name    期刊全称。既没 issn 也没 query 时才走这条路：
+#           按刊名检索 + 刊名模糊校验，较慢且可能误收同名刊物
 #
 # 怎样查到 ISSN：期刊官网 About / 版权页，或在 https://portal.issn.org 搜索刊名。
 # 填好之后跑一次 `python scripts/health_check.py` 会统一体检。
 #
 # ↓↓↓ 下面是跨学科的起点名单（故意不填 ISSN，避免给出未经核对的值）↓↓↓
-# 请把它换成你自己领域的刊物。
+# 请把它换成你自己领域的刊物，或改写成一个主题检索式。
 
 version: 1
 
@@ -36,3 +39,11 @@ journals:
   - { id: cell,          name: Cell,                          tier: A }
   - { id: nat-med,       name: "Nature Medicine",              tier: A }
   - { id: ieee-ted,      name: "IEEE Transactions on Electron Devices", tier: B }
+
+  # 主题检索示例：没有锁定期刊，用检索式跨刊搜索。
+  # 下面这条默认关着，改掉 query 再打开（enabled: true）就能用。
+  - id: topic-demo
+    name: "主题检索：示例"
+    query: "replace with your topic keywords"
+    tier: B
+    enabled: false

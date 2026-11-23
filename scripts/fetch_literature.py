@@ -108,6 +108,35 @@ def container_matches(item: dict[str, Any], name: str) -> bool:
     return False
 
 
+def topic_terms(query: str) -> list[str]:
+    """把检索式拆成有效词，去掉虚词和过短的词。"""
+    stop = {"and", "or", "the", "of", "for", "with", "in", "on", "a", "an", "to", "by", "using"}
+    return [w for w in _norm_name(query).split() if len(w) > 2 and w not in stop]
+
+
+def topic_matches(item: dict[str, Any], query: str) -> bool:
+    """主题检索的精度闸门。
+
+    Crossref 的 bibliographic 查询很宽松，不加约束会把无关论文一起带回来，
+    所以这里要求标题/摘要/主题词命中检索式的多数关键词才收。
+    """
+    terms = topic_terms(query)
+    if not terms:
+        return True
+    text = _norm_name(
+        " ".join(
+            [
+                " ".join(item.get("title") or []),
+                str(item.get("abstract") or ""),
+                " ".join(item.get("subject") or []),
+            ]
+        )
+    )
+    hits = sum(1 for term in terms if term in text)
+    need = max(1, len(terms) // 2 + 1)
+    return hits >= need
+
+
 def crossref_query(
     journal: dict[str, Any], since: date, until: date, max_items: int, logger,
     use_created: bool = False,
@@ -118,10 +147,14 @@ def crossref_query(
         f"from-{date_field}-date:{since.isoformat()},"
         f"until-{date_field}-date:{until.isoformat()},type:journal-article"
     )
-    # 没有 ISSN 时退回「刊名检索 + container-title 过滤」，任何领域都能自建白名单。
-    name_query = "" if issn else str(journal.get("name") or "").strip()
-    if not issn and not name_query:
-        raise ValueError(f"期刊 {journal.get('id')} 既没有 ISSN 也没有 name")
+    # 三类条目：
+    #   issn  —— 按刊号精确检索
+    #   query —— 按主题检索（不知道盯哪几本刊时用）
+    #   其余  —— 按刊名检索 + container-title 过滤
+    topic = str(journal.get("query") or "").strip()
+    name_query = "" if (issn or topic) else str(journal.get("name") or "").strip()
+    if not issn and not topic and not name_query:
+        raise ValueError(f"期刊 {journal.get('id')} 既没有 issn、name，也没有 query")
     filt = f"issn:{issn},{date_filter}" if issn else date_filter
     cursor = "*"
     items: list[dict] = []
@@ -138,6 +171,10 @@ def crossref_query(
         }
         if name_query:
             params["query.container-title"] = name_query
+        elif topic:
+            params["query.bibliographic"] = topic
+            params["sort"] = "relevance"
+            params["order"] = "desc"
         url = CROSSREF + "?" + urllib.parse.urlencode(params)
         try:
             data = request_json(url, logger=logger, timeout=90)
@@ -152,6 +189,8 @@ def crossref_query(
         batch = msg.get("items", []) or []
         if name_query:
             batch = [it for it in batch if container_matches(it, name_query)]
+        elif topic:
+            batch = [it for it in batch if topic_matches(it, topic)]
         items.extend(batch)
         cursor = msg.get("next-cursor")
         logger.info(

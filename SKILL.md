@@ -287,7 +287,10 @@ analysis JSON 可选填写 `comparisons` 与 `opportunities`（见 `templates` �
 - **换领域**：`use_preset.py`，或手改三份配置。
 - **调方向分值**：先把 cap 摊平。单一材料或单一方法独占相关性分，会让其他子领域系统性落榜
   （例如一个柔性电子雷达若把过半分给某一种导电聚合物，机器人、光电子方向就几乎进不了榜）。
-- **加期刊**：编辑 `journals.yaml`，`id/name/tier` 必填，`issn` 建议填，然后跑 `health_check.py`。
+- **加期刊**：编辑 `journals.yaml`，`id/tier` 必填，`issn` 建议填，然后跑 `health_check.py`。
+- **改成主题检索**：不想锁定期刊时，把条目改成 `query: "你的检索式"`（可同时给 `name` 作显示用），
+  脚本会走 Crossref 的 bibliographic 检索，并按关键词命中数做精度过滤——
+  Crossref 的模糊匹配很宽松，不加这道闸门会把大量无关论文带进来。
 - **加方向**：`keywords.yaml` 的 `directions`，保持 cap 之和 = `scoring.yaml` 的 `relevance`。
 - **加专项章节**：`keywords.yaml` 的 `flags`，每个 flag 自动变成周报 5.x 小节。
 - **改评分**：`scoring.yaml`；改完先用历史候选做回归，不要直接用于正式报告。
